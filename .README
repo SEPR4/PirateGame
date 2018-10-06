@@ -1,0 +1,8 @@
+# Installing Java
+Using JDK 8
+
+Mac (via homebrew): brew cask install java8
+
+Windows:
+
+
