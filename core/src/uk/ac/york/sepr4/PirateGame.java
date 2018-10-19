@@ -3,6 +3,9 @@ package uk.ac.york.sepr4;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import lombok.Getter;
+import uk.ac.york.sepr4.objects.entity.EntityManager;
+import uk.ac.york.sepr4.objects.quest.QuestManager;
 import uk.ac.york.sepr4.views.*;
 
 public class PirateGame extends Game {
@@ -19,11 +22,21 @@ public class PirateGame extends Game {
     private EndScreen endScreen;
 
     private AppPreferences preferences;
+
+    @Getter
+    private EntityManager entityManager;
+    @Getter
+    private QuestManager questManager;
 	
 	@Override
 	public void create () {
 	    preferences = new AppPreferences();
         loadingScreen = new LoadingScreen(this);
+
+
+        entityManager = new EntityManager();
+        questManager =  new QuestManager(this);
+
         setScreen(loadingScreen);
 	}
 
