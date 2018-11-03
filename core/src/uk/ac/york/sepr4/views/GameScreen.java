@@ -85,8 +85,8 @@ public class GameScreen implements Screen {
 
         spriteBatch.begin(); // begin rendering
 
-        inputController.movePlayer();
-        entityManager.getOrCreatePlayer().render(spriteBatch);
+       // inputController.movePlayer();
+        //entityManager.getOrCreatePlayer().render(spriteBatch);
 
         spriteBatch.end();
     }

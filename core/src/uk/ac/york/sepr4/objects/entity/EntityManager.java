@@ -37,11 +37,5 @@ public class EntityManager {
         return en;
     }
 
-    public void render(SpriteBatch sb) {
-        for (Entity e : entityStore)
-            e.render(sb);
-        player.render(sb);
-    }
-
 
 }

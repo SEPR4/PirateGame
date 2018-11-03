@@ -15,6 +15,4 @@ public class Item {
         this.lore = lore;
     }
 
-    public
-
 }

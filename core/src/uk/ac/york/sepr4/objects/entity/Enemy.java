@@ -25,19 +25,4 @@ public class Enemy extends Entity {
             this.accuracy = 0.75;
         }
     }
-
-    @Override
-    public void update() {
-        //AI Move
-    }
-
-    @Override
-    public void move() {
-
-    }
-
-    @Override
-    public void rotate() {
-
-    }
 }

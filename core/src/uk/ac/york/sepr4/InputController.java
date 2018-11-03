@@ -18,39 +18,39 @@ public class InputController implements InputProcessor {
         this.entityManager = entityManager;
     }
 
-    public void movePlayer(){
-        Vector2 pos = entityManager.getOrCreatePlayer().getPos();
-        Vector2 dir = entityManager.getOrCreatePlayer().getDirection();
-
-        Attribute attribute = entityManager.getOrCreatePlayer().getAttribute();
-
-        if(left){
-            dir.rotate(-5f);
-        }
-        if(right){
-            dir.rotate(5f);
-        }
-        if(up){
-            dir.scl(attribute.getSpeedGain()/2);
-        }
-        if(down){
-            dir.scl(1/(attribute.getSpeedGain()/2));
-        }
-//        if(noPressed == 0){
-//            //drag
-//            dir.set(dir.x*0.8f, dir.y*0.8f);
+//    public void movePlayer(){
+//        Vector2 pos = entityManager.getOrCreatePlayer().getPos();
+//        Vector2 dir = entityManager.getOrCreatePlayer().getDirection();
+//
+//        Attribute attribute = entityManager.getOrCreatePlayer().getAttribute();
+//
+//        if(left){
+//            dir.rotate(-5f);
 //        }
-        pos.add(dir);
-        //len2 better than len (libgdx docs)
-        if(dir.len2() > attribute.getMaxSpeed()){
-            dir.clamp(0f, attribute.getMaxSpeed());
-        }
-        entityManager.getOrCreatePlayer().setDirection(dir);
-        entityManager.getOrCreatePlayer().setPos(pos);
-        Gdx.app.log("pos", entityManager.getOrCreatePlayer().getPos().toString());
-        Gdx.app.log("dir", entityManager.getOrCreatePlayer().getDirection().toString());
+//        if(right){
+//            dir.rotate(5f);
+//        }
+//        if(up){
+//            dir.scl(attribute.getSpeedGain()/2);
+//        }
+//        if(down){
+//            dir.scl(1/(attribute.getSpeedGain()/2));
+//        }
+////        if(noPressed == 0){
+////            //drag
+////            dir.set(dir.x*0.8f, dir.y*0.8f);
+////        }
+//        pos.add(dir);
+//        //len2 better than len (libgdx docs)
+//        if(dir.len2() > attribute.getMaxSpeed()){
+//            dir.clamp(0f, attribute.getMaxSpeed());
+//        }
+//        entityManager.getOrCreatePlayer().setDirection(dir);
+//        entityManager.getOrCreatePlayer().setPos(pos);
+//        Gdx.app.log("pos", entityManager.getOrCreatePlayer().getPos().toString());
+//        Gdx.app.log("dir", entityManager.getOrCreatePlayer().getDirection().toString());
 
-    }
+  //  }
 
 
     @Override

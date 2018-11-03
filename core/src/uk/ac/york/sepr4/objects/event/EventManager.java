@@ -1,4 +1,8 @@
-package uk.ac.york.sepr4.objects;
+package uk.ac.york.sepr4.objects.event;
 
 public class EventManager {
+
+
+
+
 }
