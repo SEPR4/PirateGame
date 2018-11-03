@@ -9,7 +9,7 @@ public class RewardGenerator {
         Random rand = new Random();
         Integer xp = rand.nextInt(100)*modifier;
         Integer gold = rand.nextInt(50)*modifier;
-        return new Reward(Optional.empty(), Optional.empty(), Optional.of(gold), Optional.of(xp));
+        return new Reward(Optional.empty(), Optional.of(gold), Optional.of(xp));
     }
 
 }

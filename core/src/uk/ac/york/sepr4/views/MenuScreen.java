@@ -36,7 +36,7 @@ public class MenuScreen implements Screen {
 
         Skin skin = new Skin(Gdx.files.internal("skin/comic-ui.json"));
 
-        TextButton newGame = new TextButton("New Game", skin);
+        TextButton newGame = new TextButton("Play", skin);
         TextButton preferences = new TextButton("Preferences", skin);
         TextButton exit = new TextButton("Exit", skin);
 
@@ -50,7 +50,14 @@ public class MenuScreen implements Screen {
         preferences.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                parent.changeScreen(PirateGame.PREFERENCES);
+                parent.switchScreen(ScreenType.PREFERENCES);
+            }
+        });
+
+         newGame.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                parent.switchScreen(ScreenType.GAME);
             }
         });
         exit.addListener(new ChangeListener() {

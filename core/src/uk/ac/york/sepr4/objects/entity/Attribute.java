@@ -1,7 +1,7 @@
-package uk.ac.york.sepr4.objects.entity;
+package uk.ac.york.sepr4.objects.entity.attribute;
 
 public enum Attribute {
 
-    SPEED, DAMAGE, RESISTANCE
+    HEALTH, SPEED, DAMAGE, RESISTANCE
 
 }

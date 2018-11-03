@@ -1,9 +1,10 @@
 package uk.ac.york.sepr4.objects.item;
 
 import lombok.Data;
+import uk.ac.york.sepr4.objects.entity.Attribute;
 
 @Data
-public abstract class Item {
+public class Item {
 
     String name;
     String lore;
@@ -13,5 +14,7 @@ public abstract class Item {
         this.name = name;
         this.lore = lore;
     }
+
+    public
 
 }

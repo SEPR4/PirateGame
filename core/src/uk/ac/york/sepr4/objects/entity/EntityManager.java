@@ -1,16 +1,21 @@
 package uk.ac.york.sepr4.objects.entity;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 public class EntityManager {
 
     Player player;
-    HashMap<Integer, Entity> entityStore;
+    List<Entity> entityStore;
 
     public EntityManager() {
 
-        entityStore = new HashMap<>();
+        entityStore = new ArrayList<>();
 
     }
 
@@ -20,16 +25,22 @@ public class EntityManager {
 
     public Player getOrCreatePlayer() {
         if(player == null) {
-            player = new Player(0, Optional.empty(), Optional.empty());
+            player = new Player(0, Optional.of(new Vector2(-50, -50)), Optional.empty());
         }
         return player;
     }
 
-    public Enemy spawnEnemy(Double health, Optional<Float> x, Optional<Float> y) {
-        Enemy en = new Enemy(getNextFreeEntityID(), health, x, y);
-        entityStore.put(en.getId(), en);
+    public Enemy spawnEnemy(Optional<Attribute> attr, Optional<Vector2> pos, Optional<Vector2> direction) {
+        Enemy en = new Enemy(getNextFreeEntityID(), Optional.empty(), Optional.empty(), attr, pos, direction);
+        entityStore.add(en);
 
         return en;
+    }
+
+    public void render(SpriteBatch sb) {
+        for (Entity e : entityStore)
+            e.render(sb);
+        player.render(sb);
     }
 
 

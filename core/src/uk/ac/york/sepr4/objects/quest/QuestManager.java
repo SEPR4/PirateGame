@@ -1,7 +1,9 @@
 package uk.ac.york.sepr4.objects.quest;
 
+import com.badlogic.gdx.math.Vector2;
 import uk.ac.york.sepr4.PirateGame;
 import uk.ac.york.sepr4.objects.entity.Enemy;
+import uk.ac.york.sepr4.objects.entity.EntityManager;
 import uk.ac.york.sepr4.objects.item.items.Banana;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +11,12 @@ import java.util.Optional;
 
 public class QuestManager {
 
-    PirateGame pirateGame;
+    EntityManager entityManager;
     List<Quest> questList;
+    List<Quest> completedQuest;
 
-    public QuestManager(PirateGame pirateGame) {
-        this.pirateGame = pirateGame;
+    public QuestManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
         questList = new ArrayList<>();
         questList.add(tutorialQuest());
 
@@ -31,9 +34,17 @@ public class QuestManager {
         Reward tutReward = RewardGenerator.generateGenericReward(1);
         tutReward.addItem(new Banana());
 
-        Enemy enemy = pirateGame.getEntityManager().spawnEnemy(10.0, Optional.of(0f), Optional.of(0f));
+        Enemy enemy = entityManager.spawnEnemy(Optional.empty(), Optional.of(new Vector2(0,0)), Optional.empty());
 
-        return new KillQuest( "Tutorial", null, "This is the tutorial", new ArrayList<>(), new ArrayList<>(), tutReward, enemy.getId());
+        return new KillQuest( "Tutorial",  "This is the tutorial", new ArrayList<>(), new ArrayList<>(), tutReward, enemy.getId());
+    }
+
+    public void completeQuest(Quest quest) {
+        completedQuest.add(quest);
+    }
+
+    public boolean canRecieveQuest(Quest quest){
+        return completedQuest.contains(quest.getRequires());
     }
 
 }

@@ -8,16 +8,14 @@ import java.util.List;
 public abstract class Quest {
 
     String name;
-    Integer issuerId;
     String expose;
     List<Quest> requires;
     List<Quest> gives;
     Reward reward;
 
 
-    public Quest (String name, Integer issuerId, String expose, List<Quest> requires, List<Quest> gives, Reward reward) {
+    public Quest (String name, String expose, List<Quest> requires, List<Quest> gives, Reward reward) {
         this.name = name;
-        this.issuerId = issuerId;
         this.expose = expose;
         this.requires = requires;
         this.gives = gives;
