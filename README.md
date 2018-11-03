@@ -1,5 +1,6 @@
 # SEPR Group 4
 
+[![Build Status](https://travis-ci.org/SEPR4/PirateGame.svg?branch=master)](https://travis-ci.org/SEPR4/PirateGame)
 
 ##Setup
 
